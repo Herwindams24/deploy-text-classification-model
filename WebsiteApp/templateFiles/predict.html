@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>My Machine Learning Model</title>
+
+  <!-- Quick Start: CSS -->
+  <link rel="stylesheet" href='/staticFiles/main.css' />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Text Classification</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/staticFiles/img/icon.png" rel="icon">
+  <link href="/staticFiles/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/staticFiles/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/staticFiles/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/staticFiles/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/staticFiles/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/staticFiles/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/staticFiles/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="/staticFiles/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/staticFiles/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- ======= Header ======= -->
+     <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center justify-content-between">
+        <h1 class="logo"><a href="index.html">Text Classification</a></h1>
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+            <li><a class="nav-link scrollto" href="#about">About</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+      </div>
+    </header><!-- End Header -->
+   
+    <section id="hero" class="d-flex align-items-center"></section>
+      <div class="container position-relative">
+        <div class="row justify-content-center">
+          <div class="col-xl-7 col-lg-9 text-center">
+            <h3 style="margin:10px"> Result Page</h3>
+            <p style="margin:10px; font-family: 'Poppins';"> The result of prediction tweet using BERT Embedding - BiLSTM</p>
+          </div>
+        </div>
+      </div>
+      <div id="example-div" class="aligns-items-center justify-content-center" style="height:100px">
+        <div class="container position-relative">
+          <div class="row justify-content-center">
+            <table class="table table-striped table-hover w-auto p-3">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Tweet</td>
+                    <td>{{ tweet_text }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Cleaned Text</td>
+                    <td>{{ cleaned_text }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>Hate Speech</td>
+                    {% if hateSpeech == 1 %}
+                      <td>Yes</td>
+                    {% else %}
+                      <td>No</td>
+                    {% endif %}
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>Abusive</td>
+                    {% if abusive == 1 %}
+                      <td>Yes</td>
+                    {% else %}
+                      <td>No</td>
+                    {% endif %}
+                  </tr>
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>HS_Individual</td>
+                    {% if hs_Individual == 1 %}
+                      <td>Yes</td>
+                    {% else %}
+                      <td>No</td>
+                    {% endif %}
+                  </tr>
+                  <tr>
+                    <th scope="row">8</th>
+                    <td>HS_Group</td>
+                    {% if hs_Group == 1 %}
+                      <td>Yes</td>
+                    {% else %}
+                      <td>No</td>
+                    {% endif %}
+                  </tr>
+                  <tr>
+                    <th scope="row">9</th>
+                    <td>HS_Religion</td>
+                    {% if hs_Religion == 1 %}
+                      <td>Yes</td>
+                    {% else %}
+                      <td>No</td>
+                    {% endif %}
+                  </tr>
+                  <tr>
+                    <th scope="row">10</th>
+                    <td>HS_Race</td>
+                    {% if hs_Race == 1 %}
+                      <td>Yes</td>
+                    {% else %}
+                      <td>No</td>
+                    {% endif %}
+                  </tr>
+                  <tr>
+                    <th scope="row">11</th>
+                    <td>HS_Physical</td>
+                    {% if hs_Physical == 1 %}
+                      <td>Yes</td>
+                    {% else %}
+                      <td>No</td>
+                    {% endif %}
+                  </tr>
+                  <tr>
+                    <th scope="row">12</th>
+                    <td>HS_Gender</td>
+                    {% if hs_Gender == 1 %}
+                      <td>Yes</td>
+                    {% else %}
+                      <td>No</td>
+                    {% endif %}
+                  </tr>
+                  <tr>
+                    <th scope="row">13</th>
+                    <td>HS_Other</td>
+                    {% if hs_Other == 1 %}
+                      <td>Yes</td>
+                    {% else %}
+                      <td>No</td>
+                    {% endif %}
+                  </tr>
+                  <tr>
+                    <th scope="row">14</th>
+                    <td>HS_Weak</td>
+                    {% if hs_Weak == 1 %}
+                      <td>Yes</td>
+                    {% else %}
+                      <td>No</td>
+                    {% endif %}
+                  </tr>
+                  <tr>
+                    <th scope="row">15</th>
+                    <td>HS_Moderate</td>
+                    {% if hs_Moderate == 1 %}
+                      <td>Yes</td>
+                    {% else %}
+                      <td>No</td>
+                    {% endif %}
+                  </tr>
+                  <tr>
+                    <th scope="row">16</th>
+                    <td>HS_Strong</td>
+                    {% if hs_Strong == 1 %}
+                      <td>Yes</td>
+                    {% else %}
+                      <td>No</td>
+                    {% endif %}
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    </section>
+</body>
+
+</html>
